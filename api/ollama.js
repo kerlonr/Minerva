@@ -1,19 +1,23 @@
 export default async function handler(req, res) {
-  if (req.method === "OPTIONS") {
-    res.status(200).end();
-    return;
-  }
-
   try {
-    const response = await fetch("https://llama.kerlonr.com.br/api/generate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(req.body),
+    const ollamaUrl = "https://llama.kerlonr.com.br";
+
+    // pega o caminho depois de /api/ollama
+    const path = req.url.replace("/api/ollama", "");
+
+    const response = await fetch(`${ollamaUrl}${path}`, {
+      method: req.method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: req.method === "GET" ? undefined : JSON.stringify(req.body),
     });
 
-    const data = await response.json();
-    res.status(200).json(data);
+    const text = await response.text();
+
+    res.status(response.status).send(text);
   } catch (err) {
-    res.status(500).json({ error: "Erro ao comunicar com Ollama" });
+    console.error("Erro proxy Ollama:", err);
+    res.status(500).json({ error: "Falha ao conectar ao Ollama" });
   }
 }

@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Criar as estrelas
   createStars();
 
-  const OLLAMA_API_URL = "https://llama.kerlonr.com.br";
+  const OLLAMA_API_URL = "/api/ollama";
   const initialState = document.getElementById("initialState");
   const chatState = document.getElementById("chatState");
   const chatContainer = document.getElementById("chatContainer");
@@ -298,3 +298,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // Aguardar um pouco para garantir que o DOM esteja totalmente carregado
   setTimeout(applyBackdropFilter, 100);
 });
+

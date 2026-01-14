@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat IA - Ollama</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Biblioteca para highlight de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="stars-container" id="starsContainer"></div>
+
+    <div class="container">
+        <div class="initial-state" id="initialState">
+            <div class="welcome-text">Como posso ajudá-lo?</div>
+            <div class="input-wrapper">
+                <textarea class="input-box" id="initialInput" placeholder="Digite sua pergunta..." rows="1"
+                    autofocus></textarea>
+                <button class="send-button" id="initialSendButton">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="hint-text">Pressione Enter para enviar</div>
+        </div>
+
+        <div class="chat-state" id="chatState">
+            <div class="header">
+                <h1>Chat IA - Ollama</h1>
+                <select class="model-selector" id="modelSelector">
+                    <option value="llama3.2:1b">llama3.2:1b</option>
+                </select>
+            </div>
+
+            <div class="chat-container" id="chatContainer"></div>
+
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea class="input-box" id="chatInput" placeholder="Digite sua mensagem..." rows="1"></textarea>
+                    <button class="send-button" id="sendButton">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="status-message" id="statusMessage">Conectado ao Ollama</div>
+        </div>
+    </div>
+
+    <!-- Biblioteca Marked.js para renderizar markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Biblioteca Highlight.js para syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Suporte para várias linguagens -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
